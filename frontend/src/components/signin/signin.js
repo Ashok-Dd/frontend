@@ -16,6 +16,7 @@ const Signin=async()=>{
     await axios.post(api+"/signin",{Email,Password})
         .then((res)=>{
             if(res.data.message){
+              sessionStorage.auth=JSON.stringify(res?.data?.values)
                 alert("login sucessfully")
             } else {
                 alert("user not found")
